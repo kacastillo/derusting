@@ -5,15 +5,23 @@
 
 public class Person {
   // Declare a public String instance variable for the name of the person
+  public String name;
   // Declare a private int instance variable for the age of the person
+  private int age;
 
 
   // Create a constructor that takes the name and age of the person
   // and assigns it to the instance variables
-
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
 
   // Create a toString method that gives the name and age of the person
-
+  @Override
+  public String toString() {
+    return "Person{name='" + name + "', age=" + age + '}';
+  }
 
   // Implement the below public instance method "birthYear"
   // There should NOT be any print statement in this method.
@@ -27,26 +35,33 @@ public class Person {
    * @param currentYear an int for the current year
    * @return The year the person was born
    */
-  // (create the instance method here)
-
+  public int birthYear(int currentYear) {
+    return currentYear - age;
+  }
 
   public static void main(String[] args) {
     // Create an instance of Person
+    Person person1 = new Person("sally", 25);
 
     // Create another instance of Person with a different name and age and
     // assign it to a different variable
+    Person person2 = new Person("tim", 30);
 
     // Print the first person
+    System.out.println(person1);
 
     // Print the second person
-
+    System.out.println(person2);
     // Get the name of the first person and store it in a local variable
+    String name1 = person1.name;
 
     // Using the birthYear method, get the birth year of the first person
     // and store it in a local variable. Input the actual current year (e.g. 2025)
     // as the argument.
-
-    // In a separate statement, print the local variable holding the birth year.
+    int birthYear1 = person1.birthYear(2025);
+    System.out.println(birthYear1);
+  }
+}
 
     /**
      * Terminology!
@@ -62,5 +77,4 @@ public class Person {
      * 
      * Each instance has its own instance variables: Auberon's age can be different from Baya's age.
      */
-  }
-}
+  
